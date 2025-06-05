@@ -1,11 +1,11 @@
-const { createClient } = require("@supabase/supabase-js");
+import { createClient } from '@supabase/supabase-js';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // Enable CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
+  
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
   );
 
   try {
-    const { context = {}, workflow_name = "test" } = req.method === "POST" ? req.body : req.query;
+    const { workflow_name = "test" } = req.method === "POST" ? req.body : req.query;
     const sessionId = `mrc_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
 
     // Load critical rules
@@ -45,12 +45,11 @@ ${criticalRules?.map(r => `- [${r.service_tier}] ${r.rule_text}`).join("\n") || 
         compressed_wisdom: 0
       }
     });
-
   } catch (error) {
-    res.status(500).json({ 
-      success: false, 
+    res.status(500).json({
+      success: false,
       error: error.message,
       detail: "Check if environment variables are set in Vercel"
     });
   }
-};
+}
