@@ -2,10 +2,14 @@
   "name": "mrc-memory-api",
   "version": "1.0.0",
   "description": "MRC Memory API",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
 }
