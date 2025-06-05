@@ -1,4 +1,4 @@
-﻿const { createClient } = require("@supabase/supabase-js");
+const { createClient } = require("@supabase/supabase-js");
 
 module.exports = async (req, res) => {
   res.status(200).json({
@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     method: req.method,
     env_check: {
       supabase_url: process.env.SUPABASE_URL ? "Set" : "Not set",
-      supabase_key: process.env.SUPABASE_ANON_KEY ? "Set" : "Not set",
+      supabase_key: process.env.SUPABASE_SERVICE_KEY ? "Set" : "Not set",
       anthropic_key: process.env.ANTHROPIC_API_KEY ? "Set" : "Not set"
     }
   });
