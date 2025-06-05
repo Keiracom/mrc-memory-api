@@ -8,8 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "ISC", // Updated
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0"
   }
 }
+
