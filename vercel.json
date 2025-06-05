@@ -1,7 +1,0 @@
-﻿{
-  "functions": {
-    "api/retrieve.js": {
-      "maxDuration": 10
-    }
-  }
-}
